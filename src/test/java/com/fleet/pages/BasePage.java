@@ -100,4 +100,9 @@ public abstract class BasePage {
         }
     }
 
+
+    @FindBy(xpath = " //i[@title='Get help']")
+    public WebElement questionIcon;
+
+
 }
