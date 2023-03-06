@@ -20,4 +20,11 @@ public class US4_StepDefs {
 
 
     }
+
+    @And("the user navigate to {string} - {string}")
+    public void theUserNavigateTo(String tab, String module) {
+        DashboardPage dashboardPage = new DashboardPage();
+        dashboardPage.waitUntilLoaderScreenDisappear();
+        dashboardPage.navigateToModule(tab,module);
+    }
 }
