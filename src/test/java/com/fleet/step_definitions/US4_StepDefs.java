@@ -24,7 +24,11 @@ public class US4_StepDefs {
       Assert.assertEquals(expectedTitle,Driver.getDriver().getTitle());
 
     }
-
+    @Then("the page url is {string}")
+    public void thePageUrlIs(String expectedUrl) {
+        dashboardPage.waitUntilLoaderScreenDisappear();
+        Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains(expectedUrl));
+    }
 
     @Then("user should see an error message {string}")
     public void userShouldSeeAnErrorMessage(String expected) {
@@ -35,9 +39,5 @@ public class US4_StepDefs {
     }
 
 
-    @Then("the page url is {string}")
-    public void thePageUrlIs(String expectedUrl) {
-        dashboardPage.waitUntilLoaderScreenDisappear();
-        Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains(expectedUrl));
-    }
+
 }
