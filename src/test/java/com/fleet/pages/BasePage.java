@@ -19,6 +19,9 @@ import java.util.List;
 
 public abstract class BasePage {
 
+
+
+
     @FindBy(css = "span.title-level-1")
     public List<WebElement> menuOptions;
 
@@ -104,7 +107,14 @@ public abstract class BasePage {
     @FindBy(xpath = " //i[@title='Get help']")
     public WebElement questionIcon;
 
+    @FindBy(xpath = "//a[@title='Filters']")
+    public WebElement filtersButton;
 
+    @FindBy(xpath ="//a[text()='Manage filters']" )
+    public WebElement manageFilters;
+
+    @FindBy(xpath = "//ul[@class='ui-multiselect-checkboxes ui-helper-reset fixed-li']")
+    public List<WebElement> manageList;
 
 
 }
