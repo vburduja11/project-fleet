@@ -13,6 +13,7 @@ public class US01_StepDefs {
         new DashboardPage().waitUntilLoaderScreenDisappear();
 
         List<String> actualOption= BrowserUtils.getElementsText(new DashboardPage().menuOptions);
+
         Assert.assertEquals(menuOptions,actualOption);
         System.out.println("actualOption = " + actualOption);
         System.out.println("menuOptions = " + menuOptions);
