@@ -11,6 +11,7 @@ public class US01_StepDefs {
     @Then("Store manager can see modules")
     public void store_manager_can_see_modules(List<String> menuOptions) {
         new DashboardPage().waitUntilLoaderScreenDisappear();
+
         List<String> actualOption= BrowserUtils.getElementsText(new DashboardPage().menuOptions);
 
         Assert.assertEquals(menuOptions,actualOption);
@@ -21,7 +22,9 @@ public class US01_StepDefs {
 
     @Then("Driver can see modules")
     public void driver_can_see_modules(List<String> menuOptions) {
+
         new DashboardPage().waitUntilLoaderScreenDisappear();
+
         List<String> actualOption= BrowserUtils.getElementsText(new DashboardPage().menuOptions);
 
         Assert.assertEquals(menuOptions,actualOption);

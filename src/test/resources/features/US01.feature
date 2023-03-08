@@ -8,9 +8,9 @@ Feature: main modules
   Scenario: As a store manager, I should be accessing all the main modules of the app.
     Given the user logged in as "store manager"
     Then Store manager can see modules
-      |Dashboards         |
+      |Dashboards        |
       |Fleet             |
-      |Customers          |
+      |Customers         |
       |Sales             |
       |Activities        |
       |Marketing         |
@@ -23,9 +23,9 @@ Feature: main modules
   Scenario: As a sales manager, I should be accessing all the main modules of the app.
     Given the user logged in as "sales manager"
     Then Store manager can see modules
-      |Dashboards         |
+      |Dashboards        |
       |Fleet             |
-      |Customers          |
+      |Customers         |
       |Sales             |
       |Activities        |
       |Marketing         |
@@ -36,6 +36,6 @@ Feature: main modules
     Given the user logged in as "driver"
     Then Driver can see modules
       |Fleet             |
-      |Customers          |
+      |Customers         |
       |Activities        |
       |System            |
