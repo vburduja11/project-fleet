@@ -22,9 +22,9 @@ public abstract class BasePage {
     @FindBy(css = "span.title-level-1")
     public List<WebElement> menuOptions;
 
-    @FindBy(css = "div[class='loader-mask shown']")
-    @CacheLookup
+    @FindBy(xpath = "(//div[@class='loader-frame'])[last()]")
     protected WebElement loaderMask;
+
 
     @FindBy(css = "h1[class='oro-subtitle']")
     public WebElement pageSubTitle;
@@ -99,5 +99,12 @@ public abstract class BasePage {
             BrowserUtils.clickWithTimeOut(Driver.getDriver().findElement(By.xpath(moduleLocator)),  5);
         }
     }
+
+
+    @FindBy(xpath = " //i[@title='Get help']")
+    public WebElement questionIcon;
+
+
+
 
 }
