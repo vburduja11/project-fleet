@@ -7,8 +7,7 @@ Feature: As a user, I should see error messages when I enter an invalid integer 
       Given User should login into application as a "sales manager"
       When user navigate to "Activities - Calendar Events"
       And user click on Create Calendar Event button
-      Then user click on the "repeat every" checkbox
-      When repeat fields appear on create calendar event page
+      Then user click on the repeat checkbox
       Then user enter "<numbers>" to repeat every checkbox
       Then user should get "<error message>" message
 

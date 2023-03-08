@@ -24,6 +24,7 @@ public class CalendarActivitiesPage extends BasePage {
     public WebElement errorMessage;
 
 
-
+//"//span[.=\"Calendar Events\"]"
+    //"//a[contains(@title,'Create Calendar event')]"
 
 }
