@@ -49,7 +49,6 @@ public class US7_StepDefs {
         randomCheckbox.click();
         Assert.assertTrue(randomCheckbox.isSelected());
 
-
-
     }
+
 }
