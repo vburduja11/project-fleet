@@ -16,7 +16,7 @@ public class CalendarActivitiesPage extends BasePage {
     @FindBy(xpath = "//input[starts-with(@id,\"recurrence-repeat\")]")
     public WebElement repeatCheckBox;
 
-    @FindBy(xpath = "(//input[@value='1'])[2]")
+    @FindBy(xpath = "//input[@name=\"temp-validation-name-1560\"]")
     public WebElement repeatEveryInputBox;
 
 
@@ -26,5 +26,9 @@ public class CalendarActivitiesPage extends BasePage {
 
 //"//span[.=\"Calendar Events\"]"
     //"//a[contains(@title,'Create Calendar event')]"
+
+    //input[@class="recurrence-subview-control__number error"]
+    //(//input[@value='1'])[2]
+    //input[@name="temp-validation-name-1560"]
 
 }

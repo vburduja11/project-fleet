@@ -8,8 +8,8 @@ Feature: As a user, I should see error messages when I enter an invalid integer 
       When user navigate to "Activities - Calendar Events"
       And user click on Create Calendar Event button
       Then user click on the repeat checkbox
-      Then user enter "<numbers>" to repeat every checkbox
-      Then user should get "<error message>" message
+      Then user enter "number" to repeat every checkbox
+      Then user should get "error message" message
 
 
 
