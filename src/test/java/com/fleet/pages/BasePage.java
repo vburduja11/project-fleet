@@ -113,8 +113,18 @@ public abstract class BasePage {
     @FindBy(xpath ="//a[text()='Manage filters']" )
     public WebElement manageFilters;
 
-    @FindBy(xpath = "//ul[@class='ui-multiselect-checkboxes ui-helper-reset fixed-li']")
-    public List<WebElement> manageList;
+
+    public void clickOnFilterNames(String filterName) {
+        String filterLocator = "//label[@title='" + filterName + "']//span[contains(text(),'" + filterName + "')]";
+        try {
+            BrowserUtils.waitForClickablility(By.xpath(filterLocator), 5);
+            WebElement tabElement = Driver.getDriver().findElement(By.xpath(filterLocator));
+            new Actions(Driver.getDriver()).moveToElement(tabElement).pause(200).click(tabElement).build().perform();
+        } catch (Exception e) {
+            BrowserUtils.clickWithWait(By.xpath(filterLocator), 5);
+        }
+    }
+
 
 
 }

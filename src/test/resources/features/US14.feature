@@ -14,3 +14,16 @@ Feature: Marketing Page
       | userType      | tab       | module    |
       | store manager | Marketing | Campaigns |
       | sales manager | Marketing | Campaigns |
+
+  Scenario Outline: US14AC2TC2 Verify  managers managers can uncheck any filter options
+    Given the user logged in as "<userType>"
+    And the user navigate to "<tab>" - "<module>"
+    And user navigate to Filters and click
+    And user navigate to Manage filters and click
+    Then Verify one or more options can be unchecked
+
+
+    Examples:
+      | userType      | tab       | module    |
+      | store manager | Marketing | Campaigns |
+      | sales manager | Marketing | Campaigns |

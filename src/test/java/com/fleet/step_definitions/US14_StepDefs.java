@@ -1,6 +1,7 @@
 package com.fleet.step_definitions;
 
 import com.fleet.pages.DashboardPage;
+import com.fleet.utilities.BrowserUtils;
 import com.fleet.utilities.Driver;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
@@ -31,13 +32,26 @@ public class US14_StepDefs {
     @Then("user should see all five options are checked by default")
     public void userShouldSeeAllFiveOptionsAreCheckedByDefault() {
 
-        for (WebElement each : dashboardPage.manageList) {
-            each.isSelected();
-
+        for (int i = 0; i <=4; i++) {
+            String element = "//input[@id='ui-multiselect-0-0-option-"+i+"']";
+            WebElement filterCheckBox = Driver.getDriver().findElement(By.xpath(element));
+            Assert.assertTrue(filterCheckBox.isSelected());
+            System.out.println("filterCheckBox.isSelected()"+i+" = " + filterCheckBox.isSelected());
 
         }
 
-        //each.findElement(By.id("ui-multiselect-7-7-option-0")).click();
+    }
+
+
+    @Then("Verify one or more options can be unchecked")
+    public void verifyOneOrMoreOptionsCanBeUnchecked() {
+
+        for (int i = 0; i <=4; i++) {
+            BrowserUtils.sleep(0);
+            String element = "//input[@id='ui-multiselect-0-0-option-"+i+"']";
+            WebElement filterCheckBox = Driver.getDriver().findElement(By.xpath(element));
+            filterCheckBox.click();
+        }
 
     }
 }
