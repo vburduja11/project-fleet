@@ -406,6 +406,8 @@ public class BrowserUtils {
         }
     }
 
+
+
     /**
      * attempts to click on provided element until given time runs out
      *
@@ -482,6 +484,30 @@ public class BrowserUtils {
      */
     public static void waitForPresenceOfElement(By by, long time) {
         new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(time)).until(ExpectedConditions.presenceOfElementLocated(by));
+    }
+
+    public static boolean unselected (List<WebElement> allUnselectedCheckboxes ) {
+
+        boolean unselectedCheckbox = true;
+
+        for (WebElement each : allUnselectedCheckboxes) {
+            if (each.isSelected()) {
+                unselectedCheckbox = false;
+                break;
+            }
+        } return unselectedCheckbox;
+    }
+
+    public static boolean allSelected (List<WebElement> allSelectedCheckboxes ) {
+
+        boolean selectedCheckbox = true;
+
+        for (WebElement each : allSelectedCheckboxes) {
+            if (!each.isSelected()) {
+                selectedCheckbox = false;
+                break;
+            }
+        } return selectedCheckbox;
     }
 
 
