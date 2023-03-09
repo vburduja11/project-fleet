@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
+import java.util.SortedSet;
 
 public class US14_StepDefs {
 
@@ -32,26 +33,26 @@ public class US14_StepDefs {
     @Then("user should see all five options are checked by default")
     public void userShouldSeeAllFiveOptionsAreCheckedByDefault() {
 
-        for (int i = 0; i <=4; i++) {
-            String element = "//input[@id='ui-multiselect-0-0-option-"+i+"']";
-            WebElement filterCheckBox = Driver.getDriver().findElement(By.xpath(element));
-            Assert.assertTrue(filterCheckBox.isSelected());
-            System.out.println("filterCheckBox.isSelected()"+i+" = " + filterCheckBox.isSelected());
-
-        }
-
+        List<WebElement> allCheckedBoxes = dashboardPage.filterNames;
+        Assert.assertTrue(BrowserUtils.allSelected(allCheckedBoxes));
+        System.out.println("All checkboxes selected by default");
     }
-
 
     @Then("Verify one or more options can be unchecked")
     public void verifyOneOrMoreOptionsCanBeUnchecked() {
+        List<WebElement> allCheckboxes = dashboardPage.filterNames;
+        for (int i = 0; i < allCheckboxes.size(); i++) {
+            if (allCheckboxes.get(i).isDisplayed() && allCheckboxes.get(i).isEnabled()) {
+                allCheckboxes.get(i).click();
+                BrowserUtils.sleep(1);
+            }
+            if (!allCheckboxes.get(i).isSelected()) {
+                System.out.println("All checkboxes deselected successfully");
+            }
 
-        for (int i = 0; i <=4; i++) {
-            BrowserUtils.sleep(0);
-            String element = "//input[@id='ui-multiselect-0-0-option-"+i+"']";
-            WebElement filterCheckBox = Driver.getDriver().findElement(By.xpath(element));
-            filterCheckBox.click();
         }
+        Assert.assertTrue(BrowserUtils.unselected(allCheckboxes));
 
     }
+
 }

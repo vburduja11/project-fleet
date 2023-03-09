@@ -125,6 +125,8 @@ public abstract class BasePage {
         }
     }
 
+    @FindBy(name = "multiselect_0" )
+    public List<WebElement> filterNames;
 
 
 }
