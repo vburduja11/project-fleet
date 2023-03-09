@@ -16,4 +16,9 @@ public DashboardPage(){
     public WebElement flashMessage;
 
 
+    @FindBy(xpath = "//a[text()='Learn how to use this space']")
+
+    public  WebElement pinbarLink;
+
+
 }
