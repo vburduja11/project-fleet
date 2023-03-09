@@ -39,9 +39,9 @@ public class US8_StepDefs {
     @Then("verify the repeat number is {int}")
     public void verify_the_repeat_number_is(Integer int1) {
         dashboardPage.waitUntilLoaderScreenDisappear();
-        String act = calendarEventsPageMR.repeatEveryInputBox.getText();
-        String exp = "";
-        Assert.assertEquals(act, exp);
+        String actual = calendarEventsPageMR.summary.getText();
+        String expected = "Daily every 1 day";
+        Assert.assertEquals(actual, expected);
     }
 
 
