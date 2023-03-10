@@ -17,15 +17,11 @@ public class CalendarEventsPageMR extends BasePage {
     @FindBy(xpath = "//input[@data-name='recurrence-repeat']")
     public WebElement checkbox;
 
-
     @FindBy(xpath = "(//input[@value='1'])[2]")
     public WebElement repeatEveryInputBox;
 
     @FindBy(xpath = "//span[@class='validation-failed']//span[1]")
     public WebElement errorMessage;
-
-    @FindBy(xpath = "//span[normalize-space()='Daily every 1 day']")
-    public WebElement summary;
 
     @FindBy(xpath = "//body[@id='tinymce']")
     public WebElement description;
