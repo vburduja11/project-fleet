@@ -33,12 +33,4 @@ public class CalendarEventsPageMR extends BasePage {
     @FindBy(xpath = "//p")
     public WebElement descriptionTextForVerify;
 
-
-
-
-
-
-
-
-
 }
