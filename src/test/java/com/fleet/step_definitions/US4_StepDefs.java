@@ -12,7 +12,6 @@ public class US4_StepDefs {
     DashboardPage dashboardPage = new DashboardPage();
     @And("the user navigate to {string} - {string}")
     public void theUserNavigateTo(String tab, String module) {
-
         dashboardPage.waitUntilLoaderScreenDisappear();
         dashboardPage.navigateToModule(tab,module);
     }
@@ -27,7 +26,7 @@ public class US4_StepDefs {
     @Then("the page url is {string}")
     public void thePageUrlIs(String expectedUrl) {
         dashboardPage.waitUntilLoaderScreenDisappear();
-        Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains(expectedUrl));
+        Assert.assertEquals(expectedUrl,Driver.getDriver().getCurrentUrl());
     }
 
     @Then("user should see an error message {string}")
