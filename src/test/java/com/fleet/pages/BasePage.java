@@ -19,6 +19,9 @@ import java.util.List;
 
 public abstract class BasePage {
 
+
+
+
     @FindBy(css = "span.title-level-1")
     public List<WebElement> menuOptions;
 
@@ -104,7 +107,26 @@ public abstract class BasePage {
     @FindBy(xpath = " //i[@title='Get help']")
     public WebElement questionIcon;
 
+    @FindBy(xpath = "//a[@title='Filters']")
+    public WebElement filtersButton;
 
+    @FindBy(xpath ="//a[text()='Manage filters']" )
+    public WebElement manageFilters;
+
+
+    public void clickOnFilterNames(String filterName) {
+        String filterLocator = "//label[@title='" + filterName + "']//span[contains(text(),'" + filterName + "')]";
+        try {
+            BrowserUtils.waitForClickablility(By.xpath(filterLocator), 5);
+            WebElement tabElement = Driver.getDriver().findElement(By.xpath(filterLocator));
+            new Actions(Driver.getDriver()).moveToElement(tabElement).pause(200).click(tabElement).build().perform();
+        } catch (Exception e) {
+            BrowserUtils.clickWithWait(By.xpath(filterLocator), 5);
+        }
+    }
+
+    @FindBy(name = "multiselect_0" )
+    public List<WebElement> filterNames;
 
 
 }

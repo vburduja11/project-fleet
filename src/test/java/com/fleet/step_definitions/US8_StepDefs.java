@@ -12,18 +12,6 @@ public class US8_StepDefs {
     CalendarEventsPageMR calendarEventsPageMR = new CalendarEventsPageMR();
 
 
-    @Given("the user are on the homepage")
-    public void the_user_are_on_the_homepage() {
-        dashboardPage.waitUntilLoaderScreenDisappear();
-
-    }
-
-    @Then("click the {string} under the {string}")
-    public void click_the_under_the(String tab, String module) {
-        dashboardPage.waitUntilLoaderScreenDisappear();
-        dashboardPage.navigateToModule(tab, module);
-    }
-
     @Then("click the {string} button")
     public void click_the_button(String createCalendarEvent) {
         dashboardPage.waitUntilLoaderScreenDisappear();
