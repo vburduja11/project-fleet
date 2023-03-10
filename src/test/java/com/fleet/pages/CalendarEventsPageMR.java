@@ -27,4 +27,5 @@ public class CalendarEventsPageMR extends BasePage {
     @FindBy(xpath = "//span[normalize-space()='Daily every 1 day']")
     public WebElement summary;
 
+
 }
