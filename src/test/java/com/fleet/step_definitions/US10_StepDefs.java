@@ -11,8 +11,6 @@ public class US10_StepDefs {
     DashboardPage dashboardPage = new DashboardPage();
     CalendarEventsPageMR calendarEventsPageMR = new CalendarEventsPageMR();
 
-
-
     @Then("write a message in the Description field")
     public void write_a_message_in_the_description_field() {
         dashboardPage.waitUntilLoaderScreenDisappear();
@@ -28,6 +26,5 @@ public class US10_StepDefs {
         String exp = calendarEventsPageMR.description.getText();
         Assert.assertEquals(act,exp);
     }
-
 
 }
