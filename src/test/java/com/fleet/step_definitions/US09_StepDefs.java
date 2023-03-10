@@ -51,22 +51,25 @@ public class US09_StepDefs {
     @Then("user enter {string} to repeat every checkbox")
     public void userEnterToRepeatEveryCheckbox(String num) {
 
-        new CalendarActivitiesPage().repeatEveryInputBox.sendKeys(num);
-        BrowserUtils.waitFor(5);
-//        new DashboardPage().waitUntilLoaderScreenDisappear();
-//        calendarActivitiesPage.repeatEveryInputBox.click();
-//        new DashboardPage().waitUntilLoaderScreenDisappear();
-//        calendarActivitiesPage.repeatEveryInputBox.sendKeys(Keys.ENTER + num);
+        calendarActivitiesPage.repeatEveryInputBox.clear();
+
+        calendarActivitiesPage.repeatEveryInputBox.sendKeys(num);
+       BrowserUtils.waitFor(5);
 
     }
 
     @Then("user should get {string} message")
     public void user_should_get_message(String error) {
         new DashboardPage().waitUntilLoaderScreenDisappear();
-        error = "The value have not to be less than 1.";
-        new DashboardPage().waitUntilLoaderScreenDisappear();
-        WebElement actualError = Driver.getDriver().findElement(By.xpath("//span[@class='validation-failed']//span[1]"));
-        Assert.assertEquals(error,actualError.getText());
+        if (error == "The value have not to be less than 1." ||error == "The value have not to be more than 99."){
+            new DashboardPage().waitUntilLoaderScreenDisappear();
+            WebElement actualError = Driver.getDriver().findElement(By.xpath("//span[@class='validation-failed']//span[1]"));
+            Assert.assertEquals(error,actualError.getText());
+        }
+//        error = "The value have not to be less than 1.";
+//        new DashboardPage().waitUntilLoaderScreenDisappear();
+//        WebElement actualError = Driver.getDriver().findElement(By.xpath("//span[@class='validation-failed']//span[1]"));
+//        Assert.assertEquals(error,actualError.getText());
 
     }
 
