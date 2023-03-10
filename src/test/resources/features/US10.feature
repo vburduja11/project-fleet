@@ -5,7 +5,7 @@ Feature: Description when creating a calendar event.
     Given the user is on the login page
 
 
-  Scenario: US8AC1TC1 user see the default repeat day as 1
+  Scenario: US10AC1TC1 users write a description to create a calendar event
     Given the user logged in as "sales manager"
     Then the user navigate to "Activities" - "Calendar Events"
     Then click the "Create Calendar Event" button
