@@ -488,6 +488,7 @@ public class BrowserUtils {
 
     public static boolean unselected (List<WebElement> allUnselectedCheckboxes ) {
 
+
         boolean unselectedCheckbox = true;
 
         for (WebElement each : allUnselectedCheckboxes) {
@@ -509,6 +510,5 @@ public class BrowserUtils {
             }
         } return selectedCheckbox;
     }
-
 
 }
