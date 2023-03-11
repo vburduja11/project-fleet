@@ -2,6 +2,7 @@ package com.fleet.step_definitions;
 
 import com.fleet.pages.DashboardPage;
 import com.fleet.pages.LoginPage;
+import com.fleet.pages.VehicleOdometerPage;
 import com.fleet.utilities.BrowserUtils;
 import com.fleet.utilities.Driver;
 import io.cucumber.java.en.Then;
@@ -13,7 +14,7 @@ public class US11_StepDefs {
 
         LoginPage loginPage = new LoginPage();
 
-        DashboardPage dashboardPage = new DashboardPage();
+        VehicleOdometerPage vehicleOdometerPage = new VehicleOdometerPage();
 
         Actions actions = new Actions(Driver.getDriver());
 
@@ -29,16 +30,18 @@ public class US11_StepDefs {
     @Then("user navigates to {string} module")
     public void user_navigates_to_module(String string) {
 
-        actions.moveToElement(dashboardPage.fleetDropdown).build().perform();
-
-        dashboardPage.vehicleOdometerButton.click();
+        actions.moveToElement(vehicleOdometerPage.fleetDropdown).perform();
+        BrowserUtils.sleep(5000);
+        actions.moveToElement(vehicleOdometerPage.vehicleOdometerButton).click();
 
     }
     @Then("user sees a “You do not have permission to perform this action.” error message")
     public void user_sees_a_you_do_not_have_permission_to_perform_this_action_error_message() {
 
         BrowserUtils.sleep(5000);
-        dashboardPage.errorMessage.isDisplayed();
+        vehicleOdometerPage.errorMessage.isDisplayed();
+        BrowserUtils.sleep(5000);
+
 
     }
 
