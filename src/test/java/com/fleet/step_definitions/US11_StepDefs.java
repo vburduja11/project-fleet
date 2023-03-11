@@ -31,16 +31,19 @@ public class US11_StepDefs {
     public void user_navigates_to_module(String string) {
 
         actions.moveToElement(vehicleOdometerPage.fleetDropdown).perform();
-        BrowserUtils.sleep(5000);
-        actions.moveToElement(vehicleOdometerPage.vehicleOdometerButton).click();
+
+
+
+
 
     }
     @Then("user sees a “You do not have permission to perform this action.” error message")
     public void user_sees_a_you_do_not_have_permission_to_perform_this_action_error_message() {
 
-        BrowserUtils.sleep(5000);
+
+        vehicleOdometerPage.vehicleOdometerButton.click();
         vehicleOdometerPage.errorMessage.isDisplayed();
-        BrowserUtils.sleep(5000);
+
 
 
     }
@@ -53,4 +56,22 @@ public class US11_StepDefs {
         loginPage.submit.click();
 
     }
+
+    @When("user signs in as Driver")
+    public void user_signs_in_as_driver() {
+
+        loginPage.userName.sendKeys("user5");
+        loginPage.password.sendKeys("UserUser123");
+        loginPage.submit.click();
+
+    }
+
+
+
+
+
+
+
+
+
 }

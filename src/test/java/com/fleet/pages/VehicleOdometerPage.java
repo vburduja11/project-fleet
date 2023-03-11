@@ -12,7 +12,7 @@ public class VehicleOdometerPage extends BasePage {
     }
 
 
-    @FindBy (xpath = "//i[@class='fa-asterisk menu-icon']")
+    @FindBy (xpath = "//span[@class='title title-level-1'][normalize-space()='Fleet']")
     public WebElement fleetDropdown;
 
     @FindBy (xpath = "//*[text()='Vehicle Odometer']")
@@ -21,6 +21,11 @@ public class VehicleOdometerPage extends BasePage {
     @FindBy (xpath = "//*[text()='You do not have permission to perform this action.']")
     public WebElement errorMessage;
 
+    @FindBy (xpath = "//input[@value='1']")
+    public WebElement defaultPage;
+
+    @FindBy(xpath = "//button[normalize-space()='25']")
+    public WebElement viewPerPage;
 
 
 }
