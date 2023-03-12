@@ -5,18 +5,18 @@ Feature: As a user, I want to view car odometer info on the Vehicles Odometers p
 
 
   @wip
-  Scenario: Store managers should see an error message “You do not have permission to perform this action.”
+  Scenario Outline: Store and sales managers should see an error message “You do not have permission to perform this action.”
   when they click the “Vehicle Odometer” module.
-    When user signs in as Store manager
+    Given the user logged in as "<userType>"
     Then user navigates to "Vehicle odometer" module
     Then user sees a “You do not have permission to perform this action.” error message
 
-  @wip
-  Scenario: Sales managers should see an error message “You do not have permission to perform this action.”
-  when they click the “Vehicle Odometer” module.
-    When user signs in as Sales manager
-    Then user navigates to "Vehicle odometer" module
-    Then user sees a “You do not have permission to perform this action.” error message
+    Examples:
+      | userType      |
+      | sales manager |
+      | store manager |
+
+
 
     @wip
     Scenario: Drivers should see the default page as 1.

@@ -27,11 +27,15 @@ public class US11_StepDefs {
     }
     @Then("user navigates to {string} module")
     public void user_navigates_to_module(String string) {
+        vehicleOdometerPage.waitUntilLoaderScreenDisappear();
         actions.moveToElement(vehicleOdometerPage.fleetDropdown).perform();
+        BrowserUtils.sleep(5);
+        vehicleOdometerPage.vehicleOdometerButton.click();
+        BrowserUtils.sleep(5);
     }
     @Then("user sees a “You do not have permission to perform this action.” error message")
     public void user_sees_a_you_do_not_have_permission_to_perform_this_action_error_message() {
-        vehicleOdometerPage.vehicleOdometerButton.click();
+
         vehicleOdometerPage.errorMessage.isDisplayed();
     }
     @When("user signs in as Sales manager")
@@ -48,7 +52,20 @@ public class US11_StepDefs {
     }
 
 
+    @Then("user should see default page as {string}")
+    public void user_should_see_default_page_as(String string) {
 
+
+        vehicleOdometerPage.defaultPage.isDisplayed();
+
+    }
+
+    @Then("user should see View Per Page is {string} by default")
+    public void user_should_see_view_per_page_is_by_default(String string) {
+
+        vehicleOdometerPage.viewPerPage.isDisplayed();
+
+    }
 
 
 }
