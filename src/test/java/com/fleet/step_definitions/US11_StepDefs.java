@@ -50,21 +50,13 @@ public class US11_StepDefs {
         loginPage.password.sendKeys("UserUser123");
         loginPage.submit.click();
     }
-
-
     @Then("user should see default page as {string}")
     public void user_should_see_default_page_as(String string) {
-
-
         vehicleOdometerPage.defaultPage.isDisplayed();
-
     }
-
     @Then("user should see View Per Page is {string} by default")
     public void user_should_see_view_per_page_is_by_default(String string) {
-
         vehicleOdometerPage.viewPerPage.isDisplayed();
-
     }
 
 
